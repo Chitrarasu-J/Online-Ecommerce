@@ -1,0 +1,35 @@
+.navbar {
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.left .logo {
+  width: 36px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.right .btn {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid #4c6fff;
+  background: white;
+}
+
+.right .btn:hover {
+  background: #4c6fff;
+  color: white;
+}

@@ -1,0 +1,39 @@
+.details-container {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+}
+
+.details-left img {
+  width: 450px;
+  border-radius: 12px;
+}
+
+.details-right {
+  max-width: 500px;
+}
+
+.price {
+  font-size: 24px;
+  color: #4c6fff;
+}
+
+.category {
+  font-size: 16px;
+  color: gray;
+  margin-top: 5px;
+}
+
+.desc {
+  margin: 15px 0;
+}
+
+.add-cart-btn {
+  padding: 12px 20px;
+  background: #4c6fff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}

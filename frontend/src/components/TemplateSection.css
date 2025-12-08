@@ -1,0 +1,21 @@
+.section-container {
+  padding: 40px;
+}
+
+.template-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.template-card {
+  width: 280px;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 15px;
+}
+
+.template-card img {
+  width: 100%;
+  border-radius: 10px;
+}

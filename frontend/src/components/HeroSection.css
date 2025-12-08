@@ -1,0 +1,28 @@
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 40px;
+}
+
+.hero-left h1 {
+  font-size: 45px;
+  width: 500px;
+}
+
+.hero-right-card {
+  width: 240px;
+  height: 290px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-logo {
+  width: 140px;
+}
+
+.hero-caption {
+  font-size: 20px;
+  margin-top: 10px;
+}

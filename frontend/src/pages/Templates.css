@@ -1,0 +1,10 @@
+.templates-container {
+  padding: 40px;
+}
+
+.templates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
+}
