@@ -1,76 +1,63 @@
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import ChatbotButton from "../components/ChatbotButton";
-import Chatbot from "../components/Chatbot";
 import TemplateCard from "../components/TemplateCard";
 import "./Home.css";
-import { useState } from "react";
 
-function Home() {
-  const [openChat, setOpenChat] = useState(false);
+export default function Home() {
+  const [templates, setTemplates] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Example local template items for homepage preview
-  const popular = [
-    {
-      _id: "1",
-      title: "Portfolio Website",
-      price: 49,
-      imageUrl: "/portfolio.png"
-    },
-    {
-      _id: "2",
-      title: "E-commerce Store",
-      price: 49,
-      imageUrl: "/ecommerce.png"
-    },
-    {
-      _id: "3",
-      title: "Business Website",
-      price: 49,
-      imageUrl: "/business.png"
-    }
-  ];
+  useEffect(() => {
+    fetch("http://localhost:5001/api/templates")
+      .then(res => res.json())
+      .then(data => {
+        setTemplates(data.templates || []);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
 
   return (
     <>
       <Navbar />
 
-      <div className="home-wrapper">
-
-        {/* HERO SECTION */}
-        <div className="hero-section">
+      {/* HERO FULL WIDTH */}
+      <section className="hero">
+        <div className="hero-inner">
           <div className="hero-text">
             <h1>
-              Find the Best <br />
-              Website Templates <br />
-              for Your Needs
+              Craft Your <br />
+              <span>Digital Presence</span>
             </h1>
 
+            <p>
+              Explore Our Curated Collection of <b>Premium Templates</b>
+            </p>
+
             <div className="search-box">
-              <input type="text" placeholder="Search templates..." />
+              <input placeholder="Search templates..." />
               <button>🔍</button>
             </div>
           </div>
 
           <div className="hero-image">
-            <img src="/home.png" alt="hero" />
+            <img src="/images/templates/portfolio.png" alt="Preview" />
           </div>
         </div>
+      </section>
 
+      {/* FEATURED */}
+      <section className="featured">
+        <h2>Featured Templates</h2>
 
-        {/* POPULAR TEMPLATES SECTION */}
-        <h2 className="section-title">Popular Templates</h2>
-        <div className="template-row">
-          {popular.map((item) => (
-            <TemplateCard key={item._id} template={item} />
+        {loading && <p>Loading templates...</p>}
+
+        <div className="template-grid">
+          {templates.map(t => (
+            <TemplateCard key={t._id} template={t} />
           ))}
         </div>
-      </div>
-
-      {/* CHATBOT */}
-      <ChatbotButton onClick={() => setOpenChat(true)} />
-      {openChat && <Chatbot onClose={() => setOpenChat(false)} />}
+      </section>
     </>
   );
 }
-
-export default Home;

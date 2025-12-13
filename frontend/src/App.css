@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent layout shift */
+  width: 100%;
+}

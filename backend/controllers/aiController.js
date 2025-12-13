@@ -1,90 +1,39 @@
-import dotenv from "dotenv";
-dotenv.config();
-import OpenAI from "openai";
-import Template from "../models/Template.js";
+import axios from "axios";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-/*
-=========================================================
-  1️⃣ CHATBOT — GENERAL AI CHAT  ( /api/ai/chat )
-=========================================================
-*/
-
-export const aiChat = async (req, res) => {
+export const chatWithAI = async (req, res) => {
   try {
     const { message } = req.body;
 
-    // Protect against empty messages
-    if (!message || message.trim() === "") {
-      return res.json({ reply: "Please enter a message." });
+    if (!message) {
+      return res.status(400).json({ error: "Message is required" });
     }
 
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: "You are an AI assistant helping users understand website templates and development services." },
-        { role: "user", content: message }
-      ],
-    });
-
-    const reply = completion.choices[0].message.content;
-
-    return res.json({ reply });
-
-  } catch (error) {
-    console.error("AI Chat Error:", error.message);
-    return res.status(500).json({ reply: "AI is currently unavailable. Try again later!" });
+    const response = await axios.post(
+  "https://api.groq.com/openai/v1/chat/completions",
+  {
+    model: "mixtral-8x7b-32768",
+    messages: [
+      { role: "system", content: "You are a helpful AI assistant." },
+      { role: "user", content: message }
+    ]
+  },
+  {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.GROQ_API_KEY}`
+    }
   }
-};
+);
 
 
-/*
-===================================================================
-  2️⃣ TEMPLATE RECOMMENDATION — SUGGEST BEST TEMPLATES ( /api/ai/suggest )
-===================================================================
-*/
+    const aiReply = response.data.choices[0].message.content;
 
-export const aiSuggestTemplates = async (req, res) => {
-  try {
-    const { message } = req.body;
-
-    // Fetch all templates from DB
-    const templates = await Template.find({});
-
-    if (!templates || templates.length === 0) {
-      return res.json({ reply: "No templates found in the database." });
-    }
-
-    const templateList = templates
-      .map((t) => `Title: ${t.title}, Category: ${t.category}, Price: ${t.price}`)
-      .join("\n");
-
-    const prompt = `
-User Need: ${message}
-
-Available Templates:
-${templateList}
-
-Recommend the 2 BEST templates by title only.
-`;
-
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: "You are an AI helping users select website templates." },
-        { role: "user", content: prompt }
-      ],
-    });
-
-    const aiResponse = completion.choices[0].message.content;
-
-    return res.json({ reply: aiResponse });
-
+    return res.json({ reply: aiReply });
   } catch (error) {
-    console.error("AI Suggest Error:", error.message);
-    return res.status(500).json({ message: error.message });
+    console.error("Groq API Error:", error.response?.data || error);
+    return res.status(500).json({
+      message: "AI server error",
+      details: error.response?.data || error.message,
+    });
   }
 };

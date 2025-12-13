@@ -27,12 +27,24 @@ export const addTemplate = async (req, res) => {
 // Get All Templates
 export const getTemplates = async (req, res) => {
   try {
-    const templates = await Template.find({});
-    res.json(templates);
+    const templates = await Template.find();
+
+    return res.status(200).json({
+      success: true,
+      count: templates.length,
+      templates: templates,  // <-- this fixes frontend
+    });
+
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    return res.status(500).json({
+      success: false,
+      templates: [],
+      message: "Failed to fetch templates"
+    });
   }
 };
+
+
 
 // Get Single Template
 export const getTemplateById = async (req, res) => {

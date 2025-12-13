@@ -1,10 +1,14 @@
-.templates-container {
-  padding: 40px;
+.templates-page {
+  padding: 50px 80px;
+}
+
+.templates-page h1 {
+  margin-bottom: 20px;
+  font-size: 32px;
 }
 
 .templates-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
-  margin-top: 20px;
 }

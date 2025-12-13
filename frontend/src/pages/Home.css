@@ -1,60 +1,77 @@
-.home-wrapper {
-  padding: 60px 80px;
+.hero {
+  width: 100vw;
+  background: linear-gradient(180deg, #0b2c3d, #0f4c5c);
+  padding: 80px 0;
 }
 
-.hero-section {
-  display: flex;
-  justify-content: space-between;
+.hero-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
   align-items: center;
-  gap: 60px;
-}
-   
-
-.hero-text { 
-  width: 50%;
 }
 
 .hero-text h1 {
-  font-size: 52px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 56px;
+  color: white;
+}
+
+.hero-text span {
+  color: #ffb866;
+}
+
+.hero-text p {
+  color: #cde9f2;
+  font-size: 18px;
+  margin: 16px 0;
 }
 
 .search-box {
-  margin-top: 25px;
   display: flex;
-  width: 80%;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .search-box input {
-  flex: 1;
   padding: 14px;
-  border-radius: 10px 0 0 10px;
-  border: 1px solid #ccc;
+  width: 260px;
+  border-radius: 10px;
+  border: none;
 }
 
 .search-box button {
-  padding: 14px 20px;
-  background: #4c6fff;
+  padding: 14px 18px;
+  border-radius: 10px;
   border: none;
-  color: white;
-  border-radius: 0 10px 10px 0;
+  background: #ffb866;
   cursor: pointer;
 }
 
 .hero-image img {
-  width: 450px;
-  border-radius: 12px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
-.section-title {
-  margin-top: 70px;
+.featured {
+  width: 100%;
+  background: #f6f9fc;
+  padding: 60px 24px;
+}
+
+.featured h2 {
+  max-width: 1200px;
+  margin: auto auto 30px;
   font-size: 28px;
-  font-weight: 600;
 }
 
-.template-row {
-  margin-top: 20px;
-  display: flex;
-  gap: 25px;
+.template-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
 }

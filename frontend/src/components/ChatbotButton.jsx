@@ -1,12 +1,11 @@
+// frontend/src/components/ChatbotButton.jsx
 import React from "react";
 import "./ChatbotButton.css";
 
-function ChatbotButton({ onClick }) {
+export default function ChatbotButton({ onClick }) {
   return (
-    <div className="chatbot-btn" onClick={onClick}>
+    <button className="chatbot-fab" onClick={onClick} title="Open AI Assistant">
       🤖
-    </div>
+    </button>
   );
 }
-
-export default ChatbotButton;

@@ -1,20 +1,26 @@
-import { Link } from "react-router-dom";
+import React from "react";
 import "./TemplateCard.css";
 
-function TemplateCard({ template }) {
+export default function TemplateCard({ template }) {
+  const title = template.title || template.name || "Untitled";
+  const price = template.price !== undefined ? template.price : template.amount || 0;
+  const img = template.imageUrl || template.image || template.imageUrlPath || "/images/templates/portfolio.png";
+  // make rupee
+  const rupee = `₹${price}`;
+
   return (
-    <div className="template-card">
-      <img src={template.imageUrl} alt={template.title} />
+    <article className="card">
+      <div className="card-thumb">
+        <img src={img} alt={title} />
+      </div>
 
-      <h3>{template.title}</h3>
-      <p className="price">${template.price}</p>
-      <p className="category">{template.category}</p>
-
-      <Link to={`/template/${template._id}`} className="view-btn">
-        View Template
-      </Link>
-    </div>
+      <div className="card-body">
+        <h3 className="card-title">{title}</h3>
+        <div className="card-footer">
+          <div className="price">{rupee}</div>
+          <button className="buy">Add to cart</button>
+        </div>
+      </div>
+    </article>
   );
 }
-
-export default TemplateCard;

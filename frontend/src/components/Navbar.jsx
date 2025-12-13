@@ -1,23 +1,23 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <nav className="navbar">
-      <div className="left">
-        <img src="/logo.png" className="logo" />
+      <div className="nav-inner">
+        <div className="logo">Pro Template Studio</div>
 
-        <Link to="/">Home</Link>
-        <Link to="/templates">Templates</Link>
-      </div>
+        <ul className="nav-links">
+          <li>Home</li>
+          <li>Templates</li>
+          <li>About</li>
+          <li>Cart</li>
+        </ul>
 
-      <div className="right">
-        <Link to="/cart">Cart</Link>
-        <button className="btn">Sign In</button>
-        <button className="btn">Sign Up</button>
+        <div className="auth">
+          <button className="signin">Sign In</button>
+          <button className="signup">Sign Up</button>
+        </div>
       </div>
     </nav>
   );
 }
-
-export default Navbar;
