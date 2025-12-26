@@ -44,7 +44,7 @@ Secure communication between frontend and backend
 🛠️ Tech Stack
 
 FRONTEND
--
+_______
 
 React.js
 
@@ -73,6 +73,7 @@ bcrypt
 CORS
 
 dotenv
+
 
 
 
