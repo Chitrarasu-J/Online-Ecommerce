@@ -43,8 +43,8 @@ Secure communication between frontend and backend
 
 🛠️ Tech Stack
 
-FRONTEND
-u
+**FRONTEND**
+
 React.js
 
 React Router
@@ -53,7 +53,7 @@ Axios
 
 CSS
 
-BACKEND
+**BACKEND**
 
 Node.js
 
@@ -63,7 +63,7 @@ MongoDB
 
 Mongoose
 
-SECURITY & UTILITIES 
+**SECURITY & UTILITIES**
 
 JWT (JSON Web Tokens)
 
@@ -72,6 +72,7 @@ bcrypt
 CORS
 
 dotenv
+
 
 
 
