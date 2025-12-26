@@ -39,3 +39,33 @@ Designed to be extensible for future AI/NLP integration
 Clean and modular API structure
 
 Secure communication between frontend and backend
+🛠️ Tech Stack
+Frontend
+
+.React.js
+
+.React Router
+
+.Axios
+
+.CSS
+
+Backend
+
+.Node.js
+
+.Express.js
+
+.MongoDB
+
+.Mongoose
+
+Security & Utilities
+
+.JWT (JSON Web Tokens)
+
+.bcrypt
+
+.CORS
+
+.dotenv
