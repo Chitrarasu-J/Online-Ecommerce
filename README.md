@@ -9,7 +9,7 @@ This project is designed to closely resemble a real-world SaaS / product-based a
 🚀 Key Features\
 🔐 Authentication & Security
 
-  User Sign Up & Login with JWT authentication
+ - User Sign Up & Login with JWT authentication
 
   Secure password validation (uppercase, number, symbol, min length)
 
@@ -105,13 +105,13 @@ MONGO_URI=mongodb://127.0.0.1:27017/ecommerce
 JWT_SECRET=your_jwt_secret
 STRIPE_SECRET_KEY=your_stripe_secret_key
 ```
-▶️ How to Run the Project
-**Backend**
+▶️ How to Run the Project\
+**Backend**\
 cd server\
 npm install\
 npm run dev
 
-**Frontend**
+**Frontend**\
 cd client\
 npm install\
 npm run dev
@@ -140,4 +140,5 @@ npm run dev
 Payment Gateway API
 
 AI API Integration
+
 
