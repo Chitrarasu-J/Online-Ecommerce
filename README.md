@@ -6,73 +6,73 @@ It allows users to browse, wishlist, and purchase professionally designed websit
 
 This project is designed to closely resemble a real-world SaaS / product-based application.
 
-🚀 Key Features
+🚀 Key Features\
 🔐 Authentication & Security
 
-User Sign Up & Login with JWT authentication
+  User Sign Up & Login with JWT authentication
 
-Secure password validation (uppercase, number, symbol, min length)
+  Secure password validation (uppercase, number, symbol, min length)
 
-Protected routes for cart, wishlist, and checkout
+  Protected routes for cart, wishlist, and checkout
 
 🏠 Templates Marketplace
 
-Dynamic template listing from MongoDB
+  Dynamic template listing from MongoDB
 
-Category-based filtering (Portfolio, Business, E-commerce, etc.)
+  Category-based filtering (Portfolio, Business, E-commerce, etc.)
 
-Individual product detail pages with preview images
+  Individual product detail pages with preview images
 
 ❤️ Wishlist
 
-Add / remove templates from wishlist
+ Add / remove templates from wishlist
 
-User-specific wishlist stored in database
+  User-specific wishlist stored in database
 
 🛒 Cart & Checkout
 
-Add / remove templates from cart
+  Add / remove templates from cart
 
-Automatic total price calculation
+  Automatic total price calculation
 
-Persistent cart data per user
+  Persistent cart data per user
 
-Checkout flow with payment integration
+  Checkout flow with payment integration
 
 💳 Payment Integration
 
-Secure server-side payment handling
+  Secure server-side payment handling
 
-Ready for real-world payment gateway usage
+  Ready for real-world payment gateway usage
 
 🤖 AI Chatbot Assistant
 
-Helps users find suitable templates
+  Helps users find suitable templates
 
-Displays template name, price, and description
+  Displays template name, price, and description
 
-Simple, user-friendly conversational flow
+  Simple, user-friendly conversational flow
 
 🧠 Tech Stack
 Frontend
 
-React.js (Vite)
+  React.js (Vite)
 
-React Router
+  React Router
 
-Axios
+  Axios
 
-Custom CSS (fully responsive UI)
+  Custom CSS (fully responsive UI)
 
 Backend
 
-Node.js
+  Node.js
 
-Express.js
+  Express.js
 
-MongoDB & Mongoose
+  MongoDB & Mongoose
 
-JWT Authentication
+  JWT Authentication
 
 🗂️ Project Structure
 Frontend
@@ -107,36 +107,37 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 ```
 ▶️ How to Run the Project
 **Backend**
-cd server/
-npm install/
+cd server\
+npm install\
 npm run dev
 
 **Frontend**
-cd client/
-npm install/
+cd client\
+npm install\
 npm run dev
 
 
 📚 What I Learned
 
-End-to-end full-stack development
+  End-to-end full-stack development
 
-JWT authentication & protected routes
+  JWT authentication & protected routes
 
-REST API design & error handling
+  REST API design & error handling
 
-MongoDB schema design & relations
+  MongoDB schema design & relations
 
-Payment integration workflow
+  Payment integration workflow
 
-AI chatbot integration
+  AI chatbot integration
 
-Debugging real production-like issues
+  Debugging real production-like issues
 
-Writing clean, scalable code
+  Writing clean, scalable code
 
 
 
 Payment Gateway API
 
 AI API Integration
+
