@@ -1,80 +1,142 @@
-﻿# online-Ecommerce
+🛒 Pro Template Studio
+Full-Stack MERN E-Commerce Platform for Website Templates
 
-🚀 Pro Template Studio
+Pro Template Studio is a full-stack e-commerce web application built using the MERN stack.
+It allows users to browse, wishlist, and purchase professionally designed website templates with secure authentication, cart management, payment integration, and an AI-powered assistant.
 
-Pro Template Studio is a full-stack MERN e-commerce web application designed to help users explore, evaluate, and select website templates with ease. The platform provides secure authentication, dynamic product browsing, cart and wishlist functionality, and an interactive chatbot to assist users in choosing the right templates.
+This project is designed to closely resemble a real-world SaaS / product-based application.
 
-✨ Features
+🚀 Key Features
+🔐 Authentication & Security
 
-🔐 User Authentication
+User Sign Up & Login with JWT authentication
 
-Secure signup and login using JWT-based authentication
+Secure password validation (uppercase, number, symbol, min length)
 
-Protected routes for user-specific actions
+Protected routes for cart, wishlist, and checkout
 
-🛍️ Template Browsing
+🏠 Templates Marketplace
 
-View all available website templates
+Dynamic template listing from MongoDB
 
-Filter templates by category
+Category-based filtering (Portfolio, Business, E-commerce, etc.)
 
-View detailed information for each template
+Individual product detail pages with preview images
 
-❤️ Wishlist & Cart
+❤️ Wishlist
 
-Add and remove templates from wishlist
+Add / remove templates from wishlist
 
-Add templates to cart (authenticated users only)
+User-specific wishlist stored in database
 
-🤖 Chatbot Assistance
+🛒 Cart & Checkout
 
-Backend-driven chatbot to guide users in selecting templates
+Add / remove templates from cart
 
-Rule-based logic with keyword matching
+Automatic total price calculation
 
-Designed to be extensible for future AI/NLP integration
+Persistent cart data per user
 
-🌐 RESTful APIs
+Checkout flow with payment integration
 
-Clean and modular API structure
+💳 Payment Integration
 
-Secure communication between frontend and backend
+Secure server-side payment handling
 
+Ready for real-world payment gateway usage
 
-🛠️ Tech Stack
+🤖 AI Chatbot Assistant
 
-**FRONTEND**
+Helps users find suitable templates
 
-React.js
+Displays template name, price, and description
+
+Simple, user-friendly conversational flow
+
+🧠 Tech Stack
+Frontend
+
+React.js (Vite)
 
 React Router
 
 Axios
 
-CSS
+Custom CSS (fully responsive UI)
 
-**BACKEND**
+Backend
 
 Node.js
 
 Express.js
 
-MongoDB
+MongoDB & Mongoose
 
-Mongoose
+JWT Authentication
 
-**SECURITY & UTILITIES**
+🗂️ Project Structure
+Frontend
+```text
+client/
+ ├── src/
+ │   ├── api/            # Axios & API services
+ │   ├── components/     # Reusable UI components
+ │   ├── pages/          # Home, Login, Cart, Wishlist, etc.
+ │   ├── App.jsx
+ │   └── main.jsx
+```
+Backend
+```text
+server/
+ ├── src/
+ │   ├── controllers/    # Business logic
+ │   ├── routes/         # REST APIs
+ │   ├── models/         # MongoDB schemas
+ │   ├── middleware/     # Auth middleware
+ │   ├── config/         # Database config
+ │   └── index.js
+```
+🔐 Environment Variables
 
-JWT (JSON Web Tokens)
+Create a .env file in the server folder:
+```text
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/ecommerce
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
+▶️ How to Run the Project
+**Backend**
+cd server/
+npm install/
+npm run dev
 
-bcrypt
-
-CORS
-
-dotenv
-
+**Frontend**
+cd client/
+npm install/
+npm run dev
 
 
+📚 What I Learned
+
+End-to-end full-stack development
+
+JWT authentication & protected routes
+
+REST API design & error handling
+
+MongoDB schema design & relations
+
+Payment integration workflow
+
+AI chatbot integration
+
+Debugging real production-like issues
+
+Writing clean, scalable code
 
 
 
+Payment Gateway API
+
+AI API Integration
