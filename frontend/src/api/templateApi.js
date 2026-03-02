@@ -1,11 +1,13 @@
-import axios from "axios";
 import API from "./axiosConfig";
 
-export const getAllTemplates = () => API.get("/templates");
+export const getAllTemplates = async () => {
+  const res = await API.get("/templates");
+  return res.data;
+};
 
-
-const API = axios.create({
-  baseURL: "http://localhost:5001/api", 
-});
+export const getTemplateById = async (id) => {
+  const res = await API.get(`/templates/${id}`);
+  return res.data;
+};
 
 export default API;

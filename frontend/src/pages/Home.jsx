@@ -1,26 +1,30 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 import TemplateCard from "../components/TemplateCard";
 import "./Home.css";
+import { getAllTemplates } from "../api/templateApi";
 
 export default function Home() {
   const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/templates")
-      .then(res => res.json())
-      .then(data => {
-        setTemplates(data.templates || []);
+    async function load() {
+      try {
+        const data = await getAllTemplates();
+        // API returns either an array or { templates: [...] }
+        setTemplates(Array.isArray(data) ? data : data.templates || []);
+      } catch (err) {
+        console.error("Failed to load templates", err);
+      } finally {
         setLoading(false);
-      })
-      .catch(() => setLoading(false));
+      }
+    }
+
+    load();
   }, []);
 
   return (
     <>
-      <Navbar />
-
       {/* HERO FULL WIDTH */}
       <section className="hero">
         <div className="hero-inner">
@@ -41,7 +45,7 @@ export default function Home() {
           </div>
 
           <div className="hero-image">
-            <img src="/images/templates/portfolio.png" alt="Preview" />
+            <img src="/images/templates/home.png" alt="Preview" />
           </div>
         </div>
       </section>
@@ -53,8 +57,8 @@ export default function Home() {
         {loading && <p>Loading templates...</p>}
 
         <div className="template-grid">
-          {templates.map(t => (
-            <TemplateCard key={t._id} template={t} />
+          {templates.map((t) => (
+            <TemplateCard key={t._id || t.id} template={t} />
           ))}
         </div>
       </section>

@@ -65,3 +65,17 @@
   border-radius:10px;
   cursor:pointer;
 }
+
+.wishlist-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ff4d4f;
+  padding: 0 6px;
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.1);
+}
+

@@ -13,13 +13,22 @@ export const addToCart = async (req, res) => {
         user: userId,
         items: [{ template: templateId }]
       });
-      return res.status(201).json(cart);
+      const populatedCart = await cart.populate("items.template");
+      return res.status(201).json(populatedCart);
     }
 
-    cart.items.push({ template: templateId });
-    await cart.save();
+    // Check if template already exists in cart
+    const exists = cart.items.some(
+      (item) => item.template.toString() === templateId
+    );
+    
+    if (!exists) {
+      cart.items.push({ template: templateId });
+      await cart.save();
+    }
 
-    res.json(cart);
+    const populatedCart = await cart.populate("items.template");
+    res.json(populatedCart);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -40,17 +49,19 @@ export const getCart = async (req, res) => {
 export const removeFromCart = async (req, res) => {
   try {
     const userId = req.user._id;
-    const { templateId } = req.params;
+    // route uses /:id so grab id directly
+    const itemId = req.params.id;
 
     const cart = await Cart.findOne({ user: userId });
     if (!cart) return res.status(404).json({ message: "Cart not found" });
 
     cart.items = cart.items.filter(
-      (item) => item.template.toString() !== templateId
+      (item) => item._id.toString() !== itemId
     );
 
     await cart.save();
-    res.json(cart);
+    const updatedCart = await cart.populate("items.template");
+    res.json(updatedCart);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

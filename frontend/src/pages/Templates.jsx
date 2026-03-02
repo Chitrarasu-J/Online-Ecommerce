@@ -1,30 +1,11 @@
-import { useEffect, useState } from "react";
-import { getAllTemplates } from "../api/templateApi";
-import TemplateCard from "../components/TemplateCard";
-import "./Templates.css";
 
-function Templates() {
-  const [templates, setTemplates] = useState([]);
-
-  useEffect(() => {
-    async function load() {
-      const data = await getAllTemplates();
-      setTemplates(data);
-    }
-    load();
-  }, []);
-
+export default function Templates() {
   return (
-    <div className="templates-page">
+    <div style={{ padding: "40px" }}>
       <h1>All Templates</h1>
-
-      <div className="templates-grid">
-        {templates.map((tpl) => (
-          <TemplateCard key={tpl._id} template={tpl} />
-        ))}
-      </div>
+      <p>Browse all available website templates.</p>
     </div>
   );
 }
 
-export default Templates;
+

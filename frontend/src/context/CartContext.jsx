@@ -1,15 +1,17 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { addToCartApi, getCartApi, removeFromCartApi } from "../api/cartApi";
+import { AuthContext } from "./AuthContext";
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const { user } = useContext(AuthContext);
 
-  // Load cart when app starts (if user logged in)
+  // Load cart when app starts or when login status changes
   useEffect(() => {
     loadCart();
-  }, []);
+  }, [user]);
 
   const loadCart = async () => {
     try {
@@ -38,7 +40,7 @@ export const CartProvider = ({ children }) => {
 
       setCartItems(res.data.items);
     } catch (err) {
-      console.error(err);
+      console.error("Remove from cart error:", err);
     }
   };
 
