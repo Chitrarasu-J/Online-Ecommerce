@@ -20,5 +20,16 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.0"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "watch": [
+      "."
+    ],
+    "ext": "js,json,mjs",
+    "ignore": [
+      "node_modules/*"
+    ],
+    "delay": 1500
   }
 }

@@ -13,7 +13,6 @@ import aiRoutes from "./routes/aiRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 
 
-dotenv.config();
 connectDB();
 
 const app = express();
@@ -28,5 +27,21 @@ app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/ai", aiRoutes); // ONLY ONCE
 app.use("/api/payment", paymentRoutes); // payment endpoints
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = parseInt(process.env.PORT || '5000', 10);
+
+const startServer = (port) => {
+  const server = app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.log(`Port ${port} is already in use. Trying port ${port + 1}...`);
+      startServer(port + 1);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+};
+
+startServer(PORT);
